@@ -12,7 +12,7 @@ class TestCuenta {
 	static Cuenta cuenta;
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		cuenta = new Cuenta("23456","Juan",50.00);
+		cuenta = new Cuenta("23456","Juan",60.00);
 	}
 
 	@AfterAll
@@ -25,12 +25,19 @@ class TestCuenta {
 
 	@AfterEach
 	void tearDown() throws Exception {
+		
 	}
 
 	@Test
 	void testIngresar() {
 		cuenta.ingresar(50.00);
-		assertEquals(100,cuenta.getSaldo());
+		assertEquals(50,cuenta.getSaldo());
+	}
+	
+	@Test
+	void testRetirar() throws Exception {
+		cuenta.retirar(60.00);
+		assertEquals(00,cuenta.getSaldo());
 	}
 
 }
